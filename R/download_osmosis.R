@@ -13,9 +13,6 @@
 #'
 #' @export
 download_osmosis <- function(version = "0.48.3", quiet = TRUE) {
-  sys_info <- Sys.info()
-  ext <- if (sys_info["sysname"] == "Windows") ".bat" else ""
-
   release_download_url <- paste0(
     "https://github.com/openstreetmap/osmosis/releases/download/",
     version
@@ -25,16 +22,46 @@ download_osmosis <- function(version = "0.48.3", quiet = TRUE) {
   tmpfile <- tempfile("osmosis", fileext = ".zip")
   utils::download.file(zip_url, destfile = tmpfile, quiet = quiet)
 
-  tmpdir <- tempfile("osmosis")
+  tmpdir <- file.path(tempdir(), paste0("osmosis-", version))
   zip::unzip(tmpfile, exdir = tmpdir)
+  
+  rosmosis_cache <- tools::R_user_dir("rosmosis", which = "cache")
+  if (!dir.exists(rosmosis_cache)) dir.create(rosmosis_cache, recursive = TRUE)
+  
+  cache_dir <- file.path(rosmosis_cache, paste0("osmosis-", version))
+  invisible(file.copy(tmpdir, rosmosis_cache, recursive = TRUE))
 
-  osmosis_file <- file.path(tmpdir, "bin", paste0("osmosis", ext))
+  sys_info <- Sys.info()
+  ext <- if (sys_info["sysname"] == "Windows") ".bat" else ""
+  osmosis_file <- file.path(cache_dir, "bin", paste0("osmosis", ext))
 
-  cache_dir <- tools::R_user_dir("rosmosis", which = "cache")
-  if (!dir.exists(cache_dir)) dir.create(cache_dir, recursive = TRUE)
-
-  cache_file <- file.path(cache_dir, paste0("osmosis_", version, ext))
-  invisible(file.copy(osmosis_file, cache_file))
-
-  return(invisible(cache_file))
+  return(invisible(osmosis_file))
 }
+
+osmosis_path <- function(version = "0.48.3", quiet = TRUE) {
+  rosmosis_cache <- tools::R_user_dir("rosmosis", which = "cache")
+  
+  cache_dir <- file.path(rosmosis_cache, paste0("osmosis-", version))
+  
+  osmosis_file <- if (dir.exists(cache_dir)) {
+    sys_info <- Sys.info()
+    ext <- if (sys_info["sysname"] == "Windows") ".bat" else ""
+    file.path(cache_dir, "bin", paste0("osmosis", ext))
+  } else {
+    download_osmosis(version, quiet)
+  }
+  
+  return(osmosis_file)
+}
+
+test_query <- c(
+  "--read-pbf", "data_test/geofabrik_new-york-latest.osm.pbf",
+  "--tag-filter", "accept-ways",
+  "highway=*", "park_ride=*",
+  "public_transport=platform", "railway=platform",
+  "--tag-filter", "accept-relations",
+  "type=restriction",
+  "--used-node",
+  "--write-pbf", "data_test/filtered-geofabrik_new-york-latest.osm.pbf"
+)
+processx::run(osmosis_path(), args = test_query)
