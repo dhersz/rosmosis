@@ -1,0 +1,15 @@
+Package: rosmosis
+Title: Osmosis Wrapper
+Version: 0.0.0.9000
+Authors@R: 
+    person("Daniel", "Herszenhut", , "dhersz@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8066-1105"))
+Description: Downloads Osmosis and makes it easy to use.
+License: MIT + file LICENSE
+Imports: 
+    tools,
+    utils,
+    zip
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
