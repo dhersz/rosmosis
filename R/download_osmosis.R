@@ -82,22 +82,6 @@ downloading_osmosis_message <- function(zip_file, tmpfile) {
   )
 }
 
-osmosis_path <- function(version = "0.48.3", force = FALSE, quiet = TRUE) {
-  rosmosis_cache <- tools::R_user_dir("rosmosis", which = "cache")
-
-  cache_dir <- file.path(rosmosis_cache, paste0("osmosis-", version))
-
-  sys_info <- Sys.info()
-  ext <- if (sys_info["sysname"] == "Windows") ".bat" else ""
-  osmosis_file <- file.path(cache_dir, "bin", paste0("osmosis", ext))
-
-  if (!fs::file_exists(osmosis_file) || force) {
-    download_osmosis(version, force, quiet)
-  }
-
-  return(osmosis_file)
-}
-
 # test_query <- c(
 #   "--read-pbf", "data_test/geofabrik_new-york-latest.osm.pbf",
 #   "--tag-filter", "accept-ways",
