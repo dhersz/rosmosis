@@ -1,0 +1,8 @@
+reference:
+  - title: "Setup"
+  - contents:
+    - download_osmosis 
+    - osmosis_path 
+
+development:
+  mode: auto
