@@ -1,10 +1,15 @@
 Package: rosmosis
-Title: Osmosis Wrapper
+Title: Helper Functions to Download and Run Osmosis
 Version: 0.0.0.9000
 Authors@R: 
     person("Daniel", "Herszenhut", , "dhersz@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8066-1105"))
-Description: Downloads Osmosis and makes it easy to use.
+Description: Allows one to download and run Osmosis from R. Osmosis is a
+    command line application for processing OpenStreetMap data which
+    consists of several different pluggable components that can be chained
+    to perform large operations. The package currently does not aim to
+    offer functions that covers the entirety of Osmosis' API, and instead
+    offers limited support to running Osmosis through a helper function.
 License: MIT + file LICENSE
 Imports: 
     checkmate,
@@ -15,6 +20,7 @@ Imports:
     zip
 Suggests: 
     covr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
