@@ -4,3 +4,4 @@ repos:
     hooks: 
     -   id: readme-rmd-rendered
     -   id: codemeta-description-updated
+    -   id: pkgdown
