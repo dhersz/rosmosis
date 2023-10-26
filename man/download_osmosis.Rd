@@ -4,19 +4,25 @@
 \alias{download_osmosis}
 \title{Download Osmosis}
 \usage{
-download_osmosis(version = "0.48.3", quiet = TRUE)
+download_osmosis(version = "0.48.3", force = FALSE, quiet = TRUE)
 }
 \arguments{
-\item{version}{A string. Osmosis version.}
+\item{version}{A string. The version of Osmosis to be downloaded. Defaults to
+\code{"0.48.3"}, the current latest version. Please check \href{https://github.com/openstreetmap/osmosis/releases/}{openstreetmap/osmosis releases} for the full
+set of available versions.}
 
-\item{quiet}{A logical. Whether to display informative messages or not
-(defaults to \code{FALSE}).}
+\item{force}{A logical. Whether to overwrite previously downloaded and cached
+Osmosis. Defaults to \code{FALSE}.}
+
+\item{quiet}{A logical. Whether to hide informative messages or not. Defaults
+to \code{TRUE}.}
 }
 \value{
-Invisibly returns the path to the downloaded Osmosis file.
+Invisibly returns the path to Osmosis.
 }
 \description{
-Download Osmosis.
+Downloads Osmosis, a command-line application for processing OpenStreetMap
+data.
 }
 \examples{
 \dontshow{if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
