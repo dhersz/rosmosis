@@ -15,6 +15,7 @@ Imports:
     checkmate,
     fs,
     httr2,
+    processx,
     rlang,
     tools,
     zip

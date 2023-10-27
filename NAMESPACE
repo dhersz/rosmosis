@@ -2,3 +2,4 @@
 
 export(download_osmosis)
 export(osmosis_path)
+export(run_osmosis)

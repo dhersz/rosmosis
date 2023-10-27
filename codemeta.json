@@ -108,6 +108,18 @@
     },
     "4": {
       "@type": "SoftwareApplication",
+      "identifier": "processx",
+      "name": "processx",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=processx"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
       "provider": {
@@ -118,12 +130,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
     },
-    "6": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "zip",
       "name": "zip",
@@ -137,5 +149,9 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "12.288KB"
+  "fileSize": "540.551KB",
+  "codeRepository": "https://github.com/dhersz/rosmosis",
+  "readme": "https://github.com/dhersz/rosmosis/blob/main/README.md",
+  "contIntegration": ["https://github.com/dhersz/rosmosis/actions?query=workflow%3Acheck", "https://app.codecov.io/gh/dhersz/rosmosis?branch=main"],
+  "keywords": ["openstreetmap", "osmosis", "r"]
 }

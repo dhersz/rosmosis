@@ -3,6 +3,9 @@ reference:
   - contents:
     - download_osmosis 
     - osmosis_path 
+  - title: "Execution"
+  - contents:
+    - run_osmosis
 
 development:
   mode: auto
