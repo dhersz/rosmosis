@@ -41,11 +41,20 @@ downloading it if necessary.
 
 ``` r
 library(rosmosis)
+library(ggplot2)
 
 cur_osm <- system.file("extdata/cur.osm.pbf", package = "rosmosis")
 
 fs::file_size(cur_osm)
 #> 513K
+
+original_pbf <- sf::st_read(cur_osm, layer = "lines", quiet = TRUE)
+ggplot(original_pbf) + geom_sf()
+```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+
+``` r
 
 output_path <- tempfile("cropped_cur", fileext = ".osm.pbf")
 
@@ -61,4 +70,9 @@ run_osmosis(osmosis_path(), osmosis_command, echo = FALSE, spinner = FALSE)
 
 fs::file_size(output_path)
 #> 210K
+
+cropped_pbf <- sf::st_read(output_path, layer = "lines", quiet = TRUE)
+ggplot(cropped_pbf) + geom_sf()
 ```
+
+<img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
