@@ -36,6 +36,11 @@
 #'
 #' @export
 run_osmosis <- function(osmosis_path, command, echo = TRUE, spinner = TRUE) {
+  checkmate::assert_file_exists(osmosis_path)
+  checkmate::assert_string(command)
+  checkmate::assert_logical(echo, any.missing = FALSE, len = 1)
+  checkmate::assert_logical(spinner, any.missing = FALSE, len = 1)
+
   args <- unlist(strsplit(command, " "))
 
   logs <- processx::run(osmosis_path, args, echo = echo, spinner = spinner)
