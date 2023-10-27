@@ -11,6 +11,8 @@ Description: Allows one to download and run Osmosis from R. Osmosis is a
     offer functions that covers the entirety of Osmosis' API, and instead
     offers limited support to running Osmosis through a helper function.
 License: MIT + file LICENSE
+URL: https://github.com/dhersz/rosmosis
+BugReports: https://github.com/dhersz/rosmosis/issues
 Imports: 
     checkmate,
     fs,

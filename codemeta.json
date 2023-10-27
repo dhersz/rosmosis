@@ -4,6 +4,8 @@
   "identifier": "rosmosis",
   "description": "Allows one to download and run Osmosis from R. Osmosis is a command line application for processing OpenStreetMap data which consists of several different pluggable components that can be chained to perform large operations. The package currently does not aim to offer functions that covers the entirety of Osmosis' API, and instead offers limited support to running Osmosis through a helper function.",
   "name": "rosmosis: Helper Functions to Download and Run Osmosis",
+  "codeRepository": "https://github.com/dhersz/rosmosis",
+  "issueTracker": "https://github.com/dhersz/rosmosis/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9000",
   "programmingLanguage": {
@@ -149,8 +151,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "540.551KB",
-  "codeRepository": "https://github.com/dhersz/rosmosis",
+  "fileSize": "542.726KB",
   "readme": "https://github.com/dhersz/rosmosis/blob/main/README.md",
   "contIntegration": ["https://github.com/dhersz/rosmosis/actions?query=workflow%3Acheck", "https://app.codecov.io/gh/dhersz/rosmosis?branch=main"],
   "keywords": ["openstreetmap", "osmosis", "r"]

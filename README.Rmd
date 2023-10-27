@@ -19,6 +19,8 @@ status](https://www.r-pkg.org/badges/version/rosmosis)](https://CRAN.R-project.o
 status](https://github.com/dhersz/rosmosis/workflows/check/badge.svg)](https://github.com/dhersz/rosmosis/actions?query=workflow%3Acheck)
 [![Codecov test
 coverage](https://codecov.io/gh/dhersz/rosmosis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dhersz/rosmosis?branch=main)
+[![Repo
+status](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 
 **rosmosis** allows one to download and run
 [Osmosis](https://wiki.openstreetmap.org/wiki/Osmosis) from R. Osmosis is a
